@@ -37,6 +37,10 @@ class Vec2 {
   /// Creates a new [Vec2] from the coordinates of [t].
   Vec2.fromVector(Vec2 t) : this(t.x, t.y);
   
+  toString() => '($x;$y)';
+  
+  serialize() => '{"x":$x, "y":$y}';
+  
   /// Returns a copy of this [Vec2].
   Vec2 clone() => new Vec2(x, y);
   
