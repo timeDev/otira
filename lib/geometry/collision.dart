@@ -1,16 +1,23 @@
 part of geometry;
 
+/// The result of a collision test
 class CollisionResult {
-  bool collide, willCollide;
+  /// If the tested shapes collide
+  bool collide;
   
-  /// The Minimum Translation Distance vector.
+  /// If the tested shapes will collide after applying the velocity
+  bool willCollide;
+  
+  /// The Minimum Translation Distance vector
   Vec2 mtd;
   
+  /// Creates a new [CollisionResult] instance.
   CollisionResult(this.collide, this.willCollide, this.mtd);
   
+  /// Creates a [CollisionResult] indicating no collision.
   CollisionResult.noCollision() : this(false, false, new Vec2.zero());
   
-  /// Returns the standard beginning assumption of the SAT algorithm
+  /// Returns the standard beginning assumption of the SAT algorithm.
   CollisionResult.standard() : this(true, true, new Vec2.zero());
 }
 
@@ -49,8 +56,8 @@ CollisionResult collide(Shape s, Shape m, Vec2 v) {
     
     dist = dist.abs();
     if(dist < minDist) {
-      minDist = dist;
-      translAxis = i.current;
+      minDist =  dist;
+      translAxis = dot2(m.center - s.center, i.current) < 0 ? i.current * -1 : i.current;
     }
   }
   if(result.willCollide)
