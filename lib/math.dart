@@ -19,3 +19,9 @@ num maxAll(Iterable<num> nums) {
   while(i.moveNext())
     r = max(r, i.current);
 }
+
+num average(Iterable<num> nums) => nums.fold(0.0, (a, v) => a + v) / nums.length;
+
+num degToRad(num deg) => PI * deg / 180;
+
+num radToDeg(num rad) => 180 * rad / PI;
