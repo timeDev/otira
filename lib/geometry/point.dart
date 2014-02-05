@@ -12,4 +12,6 @@ class Point extends Shape {
     var p = dot2(pos, axis);
     return new Vec2(p, p);
   }
+  
+  Vec2 get center => pos;
 }

@@ -14,4 +14,6 @@ class Axis extends Shape {
     else
       return new Vec2(-double.INFINITY, double.INFINITY);
   }
+  
+  Vec2 get center => origin;
 }

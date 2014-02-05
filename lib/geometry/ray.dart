@@ -16,4 +16,6 @@ class Ray extends Shape {
     else
       return p2 < p1 ? new Vec2(-double.INFINITY, p1) : new Vec2(p1, double.INFINITY);
   }
+  
+  Vec2 get center => origin;
 }

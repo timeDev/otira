@@ -26,4 +26,6 @@ class Polygon extends Shape {
     var p = points.map((v) => dot2(v, axis));
     return new Vec2(minAll(p), maxAll(p));
   }
+  
+  Vec2 get center => new Vec2(average(points.map((p) => p.x)), average(points.map((p) => p.y)));
 }

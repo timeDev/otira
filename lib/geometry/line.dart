@@ -16,4 +16,6 @@ class Line extends Shape {
     var pb = dot2(b, axis);
     return new Vec2(min(pa,pb), max(pa,pb));
   }
+  
+  Vec2 get center => a + (b - a).withLength((b - a).length / 2);
 }
