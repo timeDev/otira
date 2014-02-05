@@ -2,7 +2,7 @@ library math;
 
 import 'dart:math';
 
-part 'math/vector.dart';
+part 'math/vec2.dart';
 
 num minAll(Iterable<num> nums) {
   if(nums.isEmpty) return double.NAN;
