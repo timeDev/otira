@@ -12,6 +12,7 @@ num minAll(Iterable<num> nums) {
   var i = nums.iterator;
   while(i.moveNext())
     r = min(r, i.current);
+  return r;
 }
 
 num maxAll(Iterable<num> nums) {
@@ -20,6 +21,7 @@ num maxAll(Iterable<num> nums) {
   var i = nums.iterator;
   while(i.moveNext())
     r = max(r, i.current);
+  return r;
 }
 
 num average(Iterable<num> nums) => nums.fold(0.0, (a, v) => a + v) / nums.length;
