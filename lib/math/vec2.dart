@@ -1,19 +1,9 @@
 part of math;
 
-/// Calculates the dot product of the [a] and [b] [Vec2] objects.
-/// 
-/// The dot product of two vectors is defined as
-///     ax * bx + ay * by
-/// 
-/// This operation does not change this object.
+/// Calculates the dot product of [a] and [b]
 double dot2(Vec2 a, Vec2 b) => a.x * b.x + a.y * b.y;
 
-/// Calculates the cross product of the [a] and [b] [Vec2] objects.
-/// 
-/// The cross product of two vectors is defined as
-///     ax * by - ay * bx
-/// 
-/// This operation does not change this object.
+/// Calculates the cross product of the [a] and [b].
 double cross2(Vec2 a, Vec2 b) => a.x * b.y - a.y * b.x;
 
 class Vec2 {
@@ -37,6 +27,12 @@ class Vec2 {
   /// Creates a new [Vec2] pointing to (0;0).
   Vec2.zero() : this(0, 0);
   
+  /// Creates a new [Vec2] pointing to (1;0).
+  Vec2.unitX() : this(1, 0);
+  
+  /// Creates a new [Vec2] pointing to (0;1).
+  Vec2.unitY() : this(0, 1);
+  
   /// Creates a new [Vec2] from the coordinates of [t].
   Vec2.fromVector(Vec2 t) : this(t.x, t.y);
   
@@ -49,24 +45,24 @@ class Vec2 {
   /// Returns a copy of this [Vec2].
   Vec2 clone() => new Vec2(x, y);
   
-  /// Copies the [x] and [y] from this [Vec2] to [t].
+  /// Copies [x] and [y] from this [Vec2] to [t].
   Vec2 copyTo(Vec2 t) => t.copyFrom(this);
   
-  /// Copies the [x] and [y] from [t] to this [Vec2].
+  /// Copies [x] and [y] from [t] to this [Vec2].
   Vec2 copyFrom(Vec2 t) => setValues(t.x, t.y);
   
-  /// Sets the [x] and [y] values to [x] and [y] and returns this object.
+  /// Sets the components of this [Vec2] to [x] and [y] and returns this object.
   Vec2 setValues(num x, num y) {
     this.x = x.toDouble();
     this.y = y.toDouble();
     return this;
   }
   
-  /// Adds each componenet of this [Vec2] to the corresponding component of [v] and returns the result.
+  /// Adds each component of this [Vec2] to the corresponding component of [v] and returns the result.
   /// This operation does not change this object.
   Vec2 operator +(Vec2 v) => new Vec2(x + v.x, y + v.y);
   
-  /// Subtracts each componenet of [v]] from the corresponding component of this [Vec2] and returns the result.
+  /// Subtracts each component of [v] from the corresponding component of this [Vec2] and returns the result.
   /// This operation does not change this object.
   Vec2 operator -(Vec2 v) => new Vec2(x - v.x, y - v.y);
   
@@ -82,11 +78,11 @@ class Vec2 {
   /// This operation does not change this object.
   Vec2 operator -() => new Vec2(-x, -y);
   
-  /// Multiplies each componenet of this [Vec2] with the corresponding component of [other] and returns the result.
+  /// Multiplies each component of this [Vec2] with the corresponding component of [other] and returns the result.
   /// This operation does not change this object.
   Vec2 multiply(Vec2 other) => new Vec2(x * other.x, y * other.y);
   
-  /// Divides each componenet of this [Vec2] by the corresponding component of [other] and returns the result.
+  /// Divides each component of this [Vec2] by the corresponding component of [other] and returns the result.
   /// This operation does not change this object.
   Vec2 divide(Vec2 other) => new Vec2(x / other.x, y / other.y);
   
@@ -114,7 +110,7 @@ class Vec2 {
   /// Sets the [length] of this [Vec2] to 1.0 by dividing each component by [length].
   Vec2 normalize() => copyFrom(normalized());
   
-  /// Returns a [Vec2] pointing in the same direction with [length] 1.0 by dividing each component by [length].
+  /// Returns a [Vec2] pointing in the same direction with [length] 1.0.
   /// This operation does not change this object.
   Vec2 normalized() {
     var l = length;
