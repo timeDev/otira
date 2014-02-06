@@ -72,7 +72,7 @@ class Vec2 {
   
   /// Divides each component of this [Vec2] by [scale] and returns the result.
   /// This operation does not change this object.
-  Vec2 operator /(num scale) => this * (1/scale); // May be faster than x/s, y/s.
+  Vec2 operator /(num scale) => this * (1.0/scale); // May be faster than x/s, y/s.
   
   /// Negates this [Vec2] and returns the result.
   /// This operation does not change this object.

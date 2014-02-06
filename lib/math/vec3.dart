@@ -65,7 +65,7 @@ class Vec3 {
   /// This operation does not change this object.
   Vec3 operator +(Vec3 v) => new Vec3(x + v.x, y + v.y, z + v.z);
   
-  /// Subtracts each component of [v]] from the corresponding component of this [Vec3] and returns the result.
+  /// Subtracts each component of [v] from the corresponding component of this [Vec3] and returns the result.
   /// This operation does not change this object.
   Vec3 operator -(Vec3 v) => new Vec3(x - v.x, y - v.y, z - v.z);
   
@@ -75,7 +75,7 @@ class Vec3 {
   
   /// Divides each component of this [Vec3] by [scale] and returns the result.
   /// This operation does not change this object.
-  Vec3 operator /(num scale) => this * (1/scale);
+  Vec3 operator /(num scale) => this * (1.0/scale);
   
   /// Negates this [Vec3] and returns the result.
   /// This operation does not change this object.
