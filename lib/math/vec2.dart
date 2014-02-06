@@ -29,16 +29,21 @@ class Vec2 {
   double y;
   
   /// Creates a new [Vec2].
-  Vec2(this.x, this.y);
+  Vec2(num x, num y) {
+    this.x = x.toDouble();
+    this.y = y.toDouble();
+  }
   
   /// Creates a new [Vec2] pointing to (0;0).
-  Vec2.zero() : this(0.0, 0.0);
+  Vec2.zero() : this(0, 0);
   
   /// Creates a new [Vec2] from the coordinates of [t].
   Vec2.fromVector(Vec2 t) : this(t.x, t.y);
   
+  /// Returns a human readable form of this [Vec2].
   toString() => '($x;$y)';
   
+  /// Returns a JSON-serialized form of this [Vec2].
   serialize() => '{"x":$x, "y":$y}';
   
   /// Returns a copy of this [Vec2].
@@ -50,10 +55,10 @@ class Vec2 {
   /// Copies the [x] and [y] from [t] to this [Vec2].
   Vec2 copyFrom(Vec2 t) => setValues(t.x, t.y);
   
-  /// Sets the [x] and [y] values to [_x] and [_y].
-  Vec2 setValues(double _x, double _y) {
-    this.x = _x;
-    this.y = _y;
+  /// Sets the [x] and [y] values to [x] and [y] and returns this object.
+  Vec2 setValues(num x, num y) {
+    this.x = x.toDouble();
+    this.y = y.toDouble();
     return this;
   }
   
@@ -72,6 +77,10 @@ class Vec2 {
   /// Divides each component of this [Vec2] by [scale] and returns the result.
   /// This operation does not change this object.
   Vec2 operator /(num scale) => this * (1/scale); // May be faster than x/s, y/s.
+  
+  /// Negates this [Vec2] and returns the result.
+  /// This operation does not change this object.
+  Vec2 operator -() => new Vec2(-x, -y);
   
   /// Multiplies each componenet of this [Vec2] with the corresponding component of [other] and returns the result.
   /// This operation does not change this object.
